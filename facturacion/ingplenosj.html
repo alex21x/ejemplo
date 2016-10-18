@@ -1,0 +1,312 @@
+<? session_start(); ?>
+<html>
+<head>
+	<title>Gestor de Normas</title>
+<link href="estilonormas.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.Estilo4 {font-family: Verdana; font-size: 14px; font-weight: bold; }
+.Estilo7 {
+	font-family: Verdana;
+	font-size: 12px;
+	font-weight: bold;
+}
+.Estilo8 {font-size: 11px}
+.Estilo9 {font-family: Verdana; font-size: 11px; font-weight: bold; }
+-->
+</style>
+</head>
+<? include("http://teleley.com/normas/db.inc"); ?>
+<script>
+	function validarcamposl(valor, mensaje)
+		{
+			datorecibido = valor			
+			if (datorecibido == "")
+			{
+				alert (mensaje)
+				focus()
+			}
+		}
+	function limpiar()
+	{
+	    with (document.frmdetalle)
+		{
+			slnormao.value = "";
+			slnormae.value = "";
+			txtnormao.value = "";
+			txtnormae.value = "";
+			txtcomentario.value = "";
+			sltiponormao.value = "";
+			sltiponormae.value = "";		
+		    document.frmdetalle.submit(); 								
+		}
+	}	
+
+	function abrir_ventana(pagina)
+	{
+	     window.open(pagina,'ventana','width=580,height=190,scrollbars=yes,toolbar=no')		 
+	}
+				
+</script>
+<? 
+		$nameuser = $usrnormas;
+		$pwduser = $clavenormas;
+		if (($nameuser ==  "") || ($pwduser == ""))
+		{
+			//echo "<meta http-equiv='Refresh' content='0;URL=http://www.asesor.com.pe/teleley/normas/error.htm'>";				
+		}
+
+		$sqlusernm = "select * from normas_usr where login = '".$nameuser."' and clave = '".$pwduser."' and estado = 'A' ";
+		$xsqlusernm = mysql_query ($sqlusernm, $ilink);
+		$nrusernm = mysql_num_rows($xsqlusernm);
+		echo $nrusernm;
+		if ($nrusernm > "0")
+		{
+				echo "<meta http-equiv='Refresh' content='0;URL=http://www.asesor.com.pe/teleley/normas/error.htm'>";		
+		} 
+ ?> 
+<body bgcolor="#8CA7C4" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" text=#333333 link=333333 alink=333333 vlink=333333>
+<img src=iconos/t.gif width=1 height=8 border=0>
+<table width="688" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="688" height="59" align="center"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="122" height="26">
+        <param name="movie" value="bt1.swf">
+        <param name="quality" value="high">
+        <embed src="bt1.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="122" height="26"></embed>
+      </object>
+        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="122" height="26">
+          <param name="movie" value="bt2.swf">
+          <param name="quality" value="high">
+          <embed src="bt2.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="122" height="26"></embed>
+        </object>
+        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="122" height="26">
+          <param name="movie" value="bt3.swf">
+          <param name="quality" value="high">
+          <embed src="bt3.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="122" height="26"></embed>
+        </object>
+        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="122" height="26">
+          <param name="movie" value="bt4.swf">
+          <param name="quality" value="high">
+          <embed src="bt4.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="122" height="26"></embed>
+        </object>
+        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="122" height="26">
+          <param name="movie" value="bt6.swf">
+          <param name="quality" value="high">
+          <embed src="bt6.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="122" height="26"></embed>
+        </object>
+        <br>
+        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="122" height="26">
+          <param name="movie" value="bts.swf">
+          <param name="quality" value="high">
+          <embed src="bts.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="122" height="26"></embed>
+        </object>
+        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="122" height="26">
+          <param name="movie" value="bt7.swf">
+          <param name="quality" value="high">
+          <embed src="bt7.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="122" height="26"></embed>
+        </object>
+        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="122" height="26">
+          <param name="movie" value="bt5.swf">
+          <param name="quality" value="high">
+          <embed src="bt5.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="122" height="26"></embed>
+        </object></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<table width=606 border=1 align="center" cellpadding=0 cellspacing=0 bgcolor="e4e4e4">
+		<form action="" method="POST" enctype="multipart/form-data" name="frmdetalle">				
+		<tr>
+		  <td height="34" align="center" bgcolor="#003366"><font color="#FFFFFF" size="2" face="Verdana"><strong>INGRESAR PLENOS JURISDICCIONALES</strong> </font></td>
+		  </tr>
+		<tr>
+		  <td width="602" align="center">
+<table width="99%" border="0" align="center">
+				  <tr>
+				    <td class="td">Titulo :</td>
+				    <td width="423">
+			        <input name="txttitulo" type="text" class="txtinput" id="txttitulo" size="50" maxlength="255"></td>
+			  </tr>
+				  <tr>
+				    <td class="td">Materia :</td>
+				    <td colspan="2">
+					<?
+                    	$sqlmateria = "select * from tplenosj_mat order by nommateria ASC";
+                        $xsqlmateria = mysql_query($sqlmateria);
+                    ?>
+				      <select name="slmateria" class="txtinput" id="slmateria" style="width:250">
+					<?
+                    	while($rwmat = mysql_fetch_array($xsqlmateria))
+                        {
+                     ?>
+						<option value="<? echo $rwmat[0];?>"><? echo $rwmat[1];?></option>
+                     <?   
+                        }
+                    ?>
+		              </select>
+			        <input  name="btcerrar" type="image" onClick="abrir_ventana('ingresomatpleno.html')" src="img/iconos/doc01.gif" alt="Ingresar Entidad" align="middle" width="20" height="20" /></td>
+			  </tr>
+				  <tr>
+					<td width="163" class="td">Tipo de Pleno : </td>
+					<td colspan="2">
+					  <select name="sltipopleno" class="txtinput" id="sltipopleno" style="width:250">
+					    <option value="supremos">Plenos Jurisdiccionales Supremos</option>
+					    <option value="nacionales">Plenos Jurisdiccionales Nacionales</option>
+					    <option value="regionales">Plenos Jurisdiccionales Regionales</option>
+					    <option value="distritales">Plenos Jurisdiccionales Distritales</option>
+                        <option value="civiles">Plenos Jurisdiccionales Civiles</option>
+                      </select>
+                    </td>
+				  </tr>
+				  <tr>
+					<td class="td">Dependencia : </td>
+					<td colspan="2">
+					<?
+                    	$sqldepend = "select * from tplenosj_depend order by nomdepend ASC ";
+                        $xsqldepend = mysql_query($sqldepend);
+                    ?>
+					  <select name="sldependencia" class="txtinput" id="sldependencia" style="width:250">
+					<?
+                    	while($rwdepend = mysql_fetch_array($xsqldepend))
+                        {
+                     ?>
+						<option value="<? echo $rwdepend[0];?>"><? echo $rwdepend[1];?></option>	
+                     <?  
+                        }
+                    ?>
+			          </select>
+					  <input  name="btcerrar2" type="image" onClick="abrir_ventana('ingresodeppleno.html')" src="img/iconos/doc01.gif" alt="Ingresar Entidad" align="middle" width="20" height="20" /></td>
+				  </tr>
+				  <tr>
+					<td class="td">Fecha :</td>
+					<td colspan="2">
+					  <select name="sldia" class="txtinput" id="sldia">
+					    <option>Dia</option>
+					    <option value="01">01</option>
+					    <option value="02">02</option>
+					    <option value="03">03</option>
+					    <option value="04">04</option>
+					    <option value="05">05</option>
+					    <option value="06">06</option>
+					    <option value="07">07</option>
+					    <option value="08">08</option>
+					    <option value="09">09</option>
+					    <option value="10">10</option>
+					    <option value="11">11</option>
+					    <option value="12">12</option>
+					    <option value="13">13</option>
+					    <option value="14">14</option>
+					    <option value="15">15</option>
+					    <option value="16">16</option>
+					    <option value="17">17</option>
+					    <option value="18">18</option>
+					    <option value="19">19</option>
+					    <option value="20">20</option>
+					    <option value="21">21</option>
+					    <option value="22">22</option>
+					    <option value="23">23</option>
+					    <option value="24">24</option>
+					    <option value="25">25</option>
+					    <option value="26">26</option>
+					    <option value="27">27</option>
+					    <option value="28">28</option>
+					    <option value="29">29</option>
+					    <option value="30">30</option>
+					    <option value="31">31</option>
+			          </select>
+					  <select name="slmes" class="txtinput" id="slmes">
+					    <option>Mes</option>
+					    <option value="01">Enero</option>
+					    <option value="02">Febreo</option>
+					    <option value="03">Marzo</option>
+					    <option value="04">Abril</option>
+					    <option value="05">Mayo</option>
+					    <option value="06">Junio</option>
+					    <option value="07">Julio</option>
+					    <option value="08">Agosto</option>
+					    <option value="09">Setiembre</option>
+					    <option value="10">Octubre</option>
+					    <option value="11">Noviembre</option>
+					    <option value="12">Diciembre</option>
+			          </select>
+					  <select name="slanio" class="txtinput" id="slanio">
+					    <option>A&ntilde;o</option>
+                        <option value="1997">1997</option>
+                        <option value="1998">1998</option>
+                        <option value="1999">1999</option>
+					    <option value="2000">2000</option>
+					    <option value="2001">2001</option>
+					    <option value="2002">2002</option>
+					    <option value="2003">2003</option>
+					    <option value="2004">2004</option>
+					    <option value="2005">2005</option>
+					    <option value="2006">2006</option>
+					    <option value="2007">2007</option>
+					    <option value="2008">2008</option>
+					    <option value="2009">2009</option>
+					    <option value="2010">2010</option>
+					    <option value="2011">2011</option>                       
+					    <option value="2012">2012</option>
+					    <option value="2013">2013</option>
+                                            <option value="2014">2014</option>
+                                            <option value="2015">2015</option>
+                                            <option value="2016">2016</option>
+                                            <option value="2017">2017</option>
+		            </select>
+                    </td>
+				  </tr>
+				  <tr>
+					<td class="td">Asunto :</td>
+					<td colspan="2"><textarea name="txtasunto" cols="70" rows="5" class="txtinput" id="txtasunto"></textarea></td>
+				  </tr>
+				  <tr>
+				    <td valign="top" class="td">Conclusiones y/o Decisi&oacute;n :</td>
+				    <td colspan="2">
+                    <textarea name="txtdetalle" cols="70" rows="5" class="txtinput" id="txtdetalle"></textarea></td>
+			  </tr>
+				  <tr>
+				    <td class="td">Direcci&oacute;n de Archivo :</td>
+				    <td colspan="2"><label for="txturl"></label>
+				      <input name="txturl" type="text" class="txtinput" id="txturl" size="70" maxlength="255">
+	      </tr>
+				  <tr>
+					<td class="td">&nbsp;</td>
+					<td colspan="2">
+				  </tr>
+				  <tr>
+					<td colspan="4" align="center">
+					  <table width="214" border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td width="97" align="center">
+						  <input name="btguardar" type="submit" class="button" id="btguardar" value="Guardar" style="width:80">
+                         </td>
+                          <td width="101" align="center">
+						  <input name="btnuevo" type="button" class="button" id="btnuevo" value="Nuevo" style="width:80" onClick="limpiar()">
+                          </td>
+                        </tr>
+                      </table>
+                      </td>
+				  </tr>
+			  </table></td>
+		  </tr>
+  </form>
+</table>
+<?
+	
+	if ($btguardar == "Guardar")
+	{
+		$txttitulo = strtoupper($txttitulo);        
+		$fecha = $slanio."-".$slmes."-".$sldia;
+        $sqlinsert = "insert into tplenosj_det(titulopleno, materia, tipopleno, dependencia, fecha, asunto, detalle, urlfile) values ('".$txttitulo."', '".$slmateria."', '".$sltipopleno."', '".$sldependencia."', '".$fecha."', '".$txtasunto."', '".$txtdetalle."', '".$txturl."')";
+		$xsqlinsert = mysql_query($sqlinsert);
+        if(!$xsqlinsert)
+        {
+                echo '<script language="JavaScript" type="text/javascript">alert ("Error al ingreso");</script>';        	
+        } else {
+                echo '<script language="JavaScript" type="text/javascript">alert ("Plano ingresado con exito");</script>';       	
+        }               
+	}
+?>
+</body>
+</html>
